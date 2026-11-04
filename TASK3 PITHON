@@ -1,0 +1,22 @@
+count = int(input("Enter the number of grades: "))
+
+if count <= 0:
+    print("Error: the number of grades must be greater than 0")
+else:
+    total = 0.0
+
+    for i in range(1, count + 1):
+        grade = float(input(f"Enter grade {i}: "))
+        # Ask again until the grade is within the 1-6 scale
+        while grade < 1 or grade > 6:
+            print("Invalid grade, it must be between 1 and 6.")
+            grade = float(input(f"Enter grade {i}: "))
+        total += grade
+
+    average = total / count
+    print(f"Average: {average:.2f}")
+
+    if average >= 3.0:
+        print("The student passed.")
+    else:
+        print("The student did not pass.")
